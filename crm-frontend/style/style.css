@@ -1,0 +1,433 @@
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+html {
+    font-family:  'Open Sans', sans-serif;
+    line-height: 32px;
+    background: #E5E5E5;
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+    margin: 0 0 0 0;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+input:focus {
+    outline: none;
+}
+button {
+    padding: 0;
+    border: 0;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1024px;
+    margin: auto;
+    padding-left: 20px;
+}
+
+.header {
+    display: flex;
+    height: 90px;
+    align-items: center;
+    vertical-align: center;
+    background-color: #FFFFFF;
+    box-shadow: 0 5px 10px #B0B0B0;
+}
+.logo {
+    display: flex;
+    margin-right: 55px;
+    align-items: center;
+    
+}
+.search__input {
+    width: 580px;
+    height: 45px;
+    padding-left: 16px;
+    border-color: rgba(51, 51, 51, 0.2);
+}
+.search__input::placeholder {
+    color: rgba(51, 51, 51, 0.2);
+    font-size: 14px;
+}
+
+.table__container {
+    margin: 0 auto;
+    max-width: 984px;
+    margin-bottom: 40px;
+    padding: 40px 0 0 0;
+}
+
+.table__header {
+    margin-bottom: 30px;
+}
+
+.table__client {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+}
+.th__client-id {
+    cursor: pointer;
+}
+
+.th__client-fullname,
+.th__client-created,
+.th__client-change,
+.th__client-contacts,
+.th__client-actions {
+    font-size: 12px;
+    font-weight: 400;
+    color: #B0B0B0;
+    cursor: pointer;
+    line-height: 15px;
+    padding: 10px 0;
+    text-align: start;
+}
+.th__client-id span,
+.th__client-fullname span,
+.th__client-created span,
+.th__client-change span,
+.th__client-contacts span,
+.th__client-actions span {
+    color: #9873FF;
+}
+.span-id-down,
+.span-surname-down,
+.span-createdAt-down,
+.span-updatedAt-down {
+    display: inline-block;
+    transform: rotate(180deg);
+}
+
+.table__client-list {
+    padding: 0;
+    background-color: white;
+}
+.table__client-list tr {
+    padding: 0 10px;
+    border-bottom: 1px solid #E5E5E5;
+}
+.table__client-list td {
+    line-height: 24px;
+}
+.td-client-id {
+    color: #B0B0B0;
+    padding: 10px;
+}
+
+.span-time {
+    color: #B0B0B0;
+    margin-left: 10px;
+}
+
+.btn__container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.img-contact {
+    margin-right: 7px;
+    cursor: pointer;
+}
+.btn-edit {
+    margin-right: 15px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.btn-delete {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.td-client-contact {
+    padding-top: 5px;
+}
+.td-client-actions {
+    padding: 10px 10px 10px 0;
+    display: flex;
+}
+.btn__add-client {
+    display: flex;
+    height: 45px;
+    width: 215px;
+    border: 1px solid #9873FF;
+    color: #9873FF;
+    font-size: 14px;
+    font-weight: 400;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* модалки*/
+
+
+.modal-overlay {
+    position: absolute;
+    height: max-content;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center; /* см. ниже */
+    align-items: center;
+    background-color: rgba(51, 51, 51, 0.2);
+    z-index: 99;
+    padding: 30px 0;
+}
+
+.modal-container {
+    position: relative;
+    background-color: #fff;
+    color: black;
+    width: 450px;
+    max-width: 100%;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+}
+.modal-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 25px 30px;
+    margin-bottom: 25px;
+}
+.modal-title span {
+    color: rgb(190, 190, 190);
+}
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input-label {
+    font-size: 10px;
+    color: #C8C5D1;
+    line-height: 10px;
+    margin-right: auto;
+    padding-left: 30px;
+}
+.input-label span{
+    color: #9873FF;
+}
+.form-input {
+    width: 390px;
+    border: none;
+    border-bottom: 1px solid #B0B0B0;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    padding: 5px 5px 5px 0;
+}
+
+.form-input::placeholder {
+    font-size: 14px;
+}
+.error-input {
+    border-bottom-color: red;
+}
+.input-add-contact.error-add {
+    border-bottom: 1px solid red;
+}
+
+.modal-error-massage {
+    width: 255px;
+    font-size: 10px;
+    text-align: center;
+    color: red;
+    line-height: 16px;
+    margin-bottom: 10px;
+}
+.container-contacts {
+    width: 100%;
+    background-color: rgba(200, 197, 209, .2);
+    margin-bottom: 20px;
+}
+.btn-add-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+.btn-add-block p {
+    margin-right: 10px;
+}
+
+.add-contact-block {
+    width: 100%;
+    display: flex;
+    height: 37px;
+    margin-top: 15px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.select {
+    width: 123px;
+    border: 1px solid #C8C5D1;
+    background-color: #E7E5EB;
+    font-size: 12px;
+}
+.input-add-contact {
+    background-color: transparent;
+    width: 240px;
+    border: none;
+    border-bottom: 1px solid #C8C5D1;
+    border-top: 1px solid #C8C5D1;
+}
+
+
+
+.btn-contact-close {
+    display: flex;
+    width: 27px;
+    background-color: #E7E5EB;
+    border: 1px solid #C8C5D1;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.btn-save {
+    height: 45px;
+    width: 147px;
+    color: white;
+    background-color: #9873FF;
+}
+.btn-close {
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.modal-delete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 22px 80px 27px 80px;
+}
+
+.delete-ask {
+    font-size: 14px;
+    text-align: center;
+    line-height: 24px;
+    margin-bottom: 25px;
+}
+.btn-delete-modal {
+    margin-right: auto;
+    margin-left: auto;
+    width: 130px;
+    height: 44px;
+    color: white;
+    background-color: #9873FF;
+}
+
+.cross-btn {
+    left: 415px;
+    top: 15px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    z-index: 1000;
+    overflow: hidden;
+    cursor: pointer;
+}
+.cross-btn span {
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #B0B0B0;
+}
+
+.cross-btn span:nth-of-type(1) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(45deg);
+}
+.cross-btn span:nth-of-type(2) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(-45deg);
+}
+
+@media all and (max-width: 768px) {
+    .container {
+        min-width: 728px;
+    }
+    .table__container {
+        max-width: 728px;
+    }
+    .td-client-actions {
+        flex-direction: column;
+    }
+    .btn-edit {
+        margin: 0;
+        justify-content: flex-end;
+    }
+    .btn-delete {
+        justify-content: start;
+    }
+    .td-client-fullname {
+        width: 200px;
+    }
+    .td-client-createdAt {
+        width: 75px;
+    }
+    .td-client-updatedAt {
+        width: 75px;
+    }
+    .td-client-createdAt span,
+    .td-client-updatedAt span {
+        margin: 0;
+        display: block;
+    }
+    .td-client-contact {
+        width: 105px;
+    }
+}
+@media all and (max-width: 320px) {
+    .table {
+        overflow: scroll;
+    }
+    .container {
+        max-width: unset;
+    }
+    .table__container {
+        min-width: unset;
+        padding: 40px 15px 0 15px;
+    }
+    .table__client {
+        width: 728px;
+        overflow: scroll;
+    }
+    .header {
+        justify-content: center;
+    }
+    .search {
+        display: none;
+    }
+}
