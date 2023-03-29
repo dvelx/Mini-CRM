@@ -4,6 +4,7 @@
 * HTML
 * CSS
 * Vanilla JS
+* Rest API
 
 [Backend Launch Instruction(RUS)](https://github.com/prostoG/Mini-CRM/tree/main/crm-backend#readme)
 
